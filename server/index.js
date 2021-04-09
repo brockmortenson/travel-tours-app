@@ -19,7 +19,7 @@ app.use(
     })
 );
 
-/* AUTH ENDPOINTS */
+    /* AUTH ENDPOINTS */
 
 // authCtrl.register
 app.post('/auth/register'); // req.body
@@ -30,10 +30,11 @@ app.post('/auth/login'); // req.body
 // authCtrl.logout
 app.delete('/auth/logout'); // receive no data
 
-// session?
+// authCtrl.getSession
+app.get('/auth/session'); // receive no data
 
 
-/* TOURS ENDPOINTS */
+    /* TOURS ENDPOINTS */
 
 // tourCtrl.getAllTours
 app.get('/api/tours');
@@ -45,7 +46,7 @@ app.post('/api/tours');
 app.put('/api/tours/:tour_id');
 
 
-/* CART ENDPOINTS */
+    /* CART ENDPOINTS */
 
 // cartCtrl.getBookedTours
 app.get('/api/cart');
