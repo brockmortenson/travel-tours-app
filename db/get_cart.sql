@@ -1,4 +1,4 @@
-SELECT * FROM cart_items
+SELECT * FROM tour
 JOIN cart_items ON cart_items.cart_items_id = tour.tour_id
 WHERE user_id = $1;
 

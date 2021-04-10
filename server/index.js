@@ -3,10 +3,13 @@ const express = require('express');
 const app = express();
 const massive = require('massive');
 const session = require('express-session');
+// import tourCtrl from './controllers/tourController';
 
 
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
+
+app.use(express.json())
 
 app.use(
     session({
