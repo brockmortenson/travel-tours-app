@@ -3,7 +3,8 @@ const express = require('express');
 const app = express();
 const massive = require('massive');
 const session = require('express-session');
-// import tourCtrl from './controllers/tourController';
+const userCtrl = require('./controllers/userController');
+const tourCtrl = require('./controllers/tourController');
 
 
 
@@ -24,23 +25,23 @@ app.use(
 
     /* AUTH ENDPOINTS */
 
-// authCtrl.register
-app.post('/auth/register'); // req.body
+// userCtrl.register
+app.post('/auth/register', userCtrl.register); // req.body
 
-// authCtrl.login
-app.post('/auth/login'); // req.body
+// userCtrl.login
+app.post('/auth/login', userCtrl.login); // req.body
 
-// authCtrl.logout
-app.delete('/auth/logout'); // receive no data
+// userCtrl.logout
+app.delete('/auth/logout', userCtrl.logout); // receive no data
 
-// authCtrl.getSession
-app.get('/auth/session'); // receive no data
+// userCtrl.getSession
+app.get('/auth/session', userCtrl.getSession); // receive no data
 
 
     /* TOURS ENDPOINTS */
 
 // tourCtrl.getAllTours
-app.get('/api/tours');
+app.get('/api/tours', tourCtrl.getAllTours);
 
 // tourCtrl.bookTour
 app.post('/api/tours');
