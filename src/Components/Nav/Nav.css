@@ -28,7 +28,7 @@
     margin: 5px 0 6px 0;
     padding: 7px 8px;
     border: 1px solid black;
-    border-radius: 10%;
+    border-radius: 5px;
 }
 
 .nav-home {
@@ -40,7 +40,7 @@
     margin: 5px 0 6px 0;
     padding: 7px 8px;
     border: 1px solid black;
-    border-radius: 10%;
+    border-radius: 5px;
 }
 
 .nav-about {
@@ -52,7 +52,7 @@
     margin: 5px 0 6px 0;
     padding: 7px 8px;
     border: 1px solid black;
-    border-radius: 10%;
+    border-radius: 5px;
 }
 
 .nav-contact {
@@ -64,5 +64,5 @@
     margin: 5px 0 6px 0;
     padding: 7px 8px;
     border: 1px solid black;
-    border-radius: 10%;
+    border-radius: 5px;
 }

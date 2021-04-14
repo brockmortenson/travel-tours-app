@@ -5,6 +5,7 @@ const massive = require('massive');
 const session = require('express-session');
 const userCtrl = require('./controllers/userController');
 const tourCtrl = require('./controllers/tourController');
+const cartCtrl = require('./controllers/cartController');
 
 
 
@@ -47,13 +48,13 @@ app.get('/api/tours', tourCtrl.getAllTours);
 app.post('/api/tours');
 
 // tourCtrl.changeTier
-app.put('/api/tours/:tour_id');
+app.put('/api/tours/:tour_id', tourCtrl.changeTier);
 
 
     /* CART ENDPOINTS */
 
-// cartCtrl.getBookedTours
-app.get('/api/cart');
+// cartCtrl.getCart
+app.get('/api/cart', cartCtrl.getCart);
 
 // cartCtrl.changeTier
 app.put('/api/cart/:tour_id');
