@@ -9,7 +9,8 @@ const Home = () => {
         <div className='Home'>
             <div className='home-container'></div>
             <div className='tours-render'>
-                <header className='tours-header'>TOURS</header>
+                <header className='tours-header'>European Tours</header>
+                <h2 className='arrow'></h2>
                 <Tours />
             </div>
         </div>

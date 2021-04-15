@@ -17,9 +17,11 @@ const Tours = () => {
     const mappedTours = toursArr.map((tour) => {
         return (
             <div className='tour-container'>
-                <div className='tour-title'>{tour.title}</div>
-                <div className='tour-price'>{tour.price}</div>
-                <div className='tour-summary'>{tour.summary}</div>
+                <div className='individual-tour'>
+                    <div className='tour-title'>{tour.title}</div>
+                    <div className='tour-price'>{tour.price}</div>
+                    <div className='tour-summary'>{tour.summary}</div>
+                </div>
             </div>
         )
     });
@@ -28,6 +30,11 @@ const Tours = () => {
     return (
         <div className='Tours'>
             <h2 className='tours-list'>{mappedTours}</h2>
+            <div className='tour-images'>
+                <img className='basic-paris' src='https://res.allmacwallpaper.com/pic/Thumbnails/2558_728.jpg' alt='basic-paris' />
+                <img className='full-paris' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSaQJtUoaVDpxKRb5z9rH76gqE26v9hQitw&usqp=CAU' alt='full-paris' />
+                <img className='inclusive-paris' />
+            </div>
         </div>
     );
 }
