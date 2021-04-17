@@ -26,34 +26,25 @@ app.use(
 
     /* AUTH ENDPOINTS */
 
-// userCtrl.register
-app.post('/auth/register', userCtrl.register); // req.body
+app.post('/auth/register', userCtrl.register);
 
-// userCtrl.login
-app.post('/auth/login', userCtrl.login); // req.body
+app.post('/auth/login', userCtrl.login);
 
-// userCtrl.logout
-app.delete('/auth/logout', userCtrl.logout); // receive no data
+app.delete('/auth/logout', userCtrl.logout);
 
-// userCtrl.getSession
-app.get('/auth/session', userCtrl.getSession); // receive no data
+app.get('/auth/session', userCtrl.getSession);
 
 
     /* TOURS ENDPOINTS */
 
-// tourCtrl.getAllTours
 app.get('/api/tours', tourCtrl.getAllTours);
 
 // tourCtrl.bookTour
 app.post('/api/tours');
 
-// tourCtrl.changeTier
-app.put('/api/tours/:tour_id', tourCtrl.changeTier);
-
 
     /* CART ENDPOINTS */
 
-// cartCtrl.getCart
 app.get('/api/cart', cartCtrl.getCart);
 
 // cartCtrl.changeTier

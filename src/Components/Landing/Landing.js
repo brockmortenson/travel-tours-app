@@ -1,31 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useSelector, connect } from 'react-redux';
+import { requestUserData } from '../../ducks/userReducer';
+import { useHistory } from 'react-router';
 import './Landing.css';
 
-const Landing = () => {
+const Landing = (props) => {
     const [ userEmail, setUserEmail ] = useState('');
     const [ userPassword, setUserPassword ] = useState('');
-
+    const user = useSelector(reduxState => reduxState.user);
+    const history = useHistory();
+    
     useEffect(() => {
         
     }, []);
     // after the comma?
-
-    function userLogin() {
+    async function userLogin() {
         let body = { userEmail, userPassword };
-        axios
+        try {
+        const user = await axios
             .post('/auth/login', body)
-            .then(response => response.data)
-            .catch(err => console.log(err))
+            props.requestUserData()
+            history.push('/Home')
+        } catch (err) {
+            console.log(err)
+        }
+        
     };
     
-    function userRegister() {
+    async function userRegister() {
         let body = { userEmail, userPassword };
-        // console.log(body)
-        axios
+        try {
+        await axios
             .post('/auth/register', body)
-            .then(response => response.data)
-            .catch(err => console.log(err))
+            props.requestUserData()
+            history.push('/Home')
+        } catch (err) {
+            console.log(err)
+        }
     };
 
     return (
@@ -70,4 +82,4 @@ const Landing = () => {
     );
 }
 
-export default Landing;
+export default connect(null, {requestUserData})(Landing);

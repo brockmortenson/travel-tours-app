@@ -10,8 +10,10 @@ const Home = () => {
             <div className='home-container'></div>
             <div className='tours-render'>
                 <header className='tours-header'>European Tours</header>
-                <h2 className='arrow'></h2>
                 <Tours />
+            </div>
+            <div className='desc-header-container'>
+                <h2 className='description-header'>Read More About Our Tours!</h2>
             </div>
         </div>
     );
