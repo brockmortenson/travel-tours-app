@@ -18,7 +18,7 @@ const Landing = (props) => {
     async function userLogin() {
         let body = { userEmail, userPassword };
         try {
-        const user = await axios
+        await axios
             .post('/auth/login', body)
             props.requestUserData()
             history.push('/Home')
