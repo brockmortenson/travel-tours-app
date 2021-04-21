@@ -3,8 +3,9 @@ module.exports = {
         const allTours = await req.app.get('db').get_all_tours();
         return res.status(200).send(allTours);
     },
-    changeTier: async (req, res) => {
-        const updatedTier = await req.app.get('db').change_tier();
-        return res.status(200).send(updatedTier);
+    bookTour: async (req, res) => {
+        console.log(req.body)
+        const addedTours = await req.app.get('db').add_cart_item_to_cart(cart_id, tour_id);
+        return res.status (200).send(addedTours);
     }
 }

@@ -40,14 +40,14 @@ app.get('/auth/session', userCtrl.getSession);
 app.get('/api/tours', tourCtrl.getAllTours);
 
 // tourCtrl.bookTour
-app.post('/api/tours');
+app.post('/api/tours', tourCtrl.bookTour);
 
 
     /* CART ENDPOINTS */
 
 app.get('/api/cart', cartCtrl.getCart);
 
-// cartCtrl.changeTier
+// cartCtrl.updateTour
 app.put('/api/cart/:tour_id');
 
 // cartCtrl.removeTour

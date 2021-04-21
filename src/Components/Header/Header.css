@@ -1,6 +1,6 @@
 .Header {
     width: 100vw;
-    height: 6.5vh;
+    height: 60px;
     display: flex;
     position: fixed;
     align-items: center;
@@ -34,4 +34,20 @@
     padding: 3px 4px;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+@media (max-width: 640px) {
+    #logout-btn {
+        font-size: 13px;
+        right: 75px;
+    }
+
+    .header-title {
+        margin-left: 20px;
+    }
+
+    .Header {
+        width: 100vw;
+        justify-content: space-between;
+    }
 }

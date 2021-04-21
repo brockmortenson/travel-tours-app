@@ -30,7 +30,7 @@ const Landing = (props) => {
     async function userRegister() {
         let body = { userEmail, userPassword };
         try {
-        await axios
+            await axios
                 .post('/auth/register', body)
                 props.requestUserData()
                 history.push('/Home')

@@ -15,9 +15,14 @@ module.exports = {
         const hash = bcrypt.hashSync(password, salt);
 
         const [ newUser ] = await db.register_user(email, hash);
+        const [ cart ] = await db.create_cart(newUser.user_id);
+
+        console.log(cart)
+
         delete newUser.hash;
 
         req.session.user = newUser;
+        req.session.user.cart = cart.cart_id;
 
         res.status(200).send(req.session.user)
     },
@@ -46,7 +51,6 @@ module.exports = {
     logout: (req, res) => {
         req.session.destroy();
         res.sendStatus(200);
-        // res.redirect('url')
     },
     getSession: (req, res) => {
         if (req.session.user) {
