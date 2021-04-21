@@ -6,6 +6,7 @@ const session = require('express-session');
 const userCtrl = require('./controllers/userController');
 const tourCtrl = require('./controllers/tourController');
 const cartCtrl = require('./controllers/cartController');
+const path = require('path');
 
 
 
@@ -52,6 +53,14 @@ app.put('/api/cart/:tour_id');
 
 // cartCtrl.removeTour
 app.delete('/api/cart/:tour_id');
+
+
+app.use(express.static(__dirname + '/../build'));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+});
+
 
 massive({
     connectionString: CONNECTION_STRING,
