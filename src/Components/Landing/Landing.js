@@ -9,13 +9,13 @@ const Landing = (props) => {
     const [ userEmail, setUserEmail ] = useState('');
     const [ userPassword, setUserPassword ] = useState('');
     const history = useHistory();
-    // const user = useSelector(reduxState => reduxState.user);
     
     useEffect(() => {
         
     }, []);
     // after the comma?
-    async function userLogin() {
+    async function userLogin(e) {
+        e.preventDefault()
         let body = { userEmail, userPassword };
         try {
         await axios
@@ -24,7 +24,7 @@ const Landing = (props) => {
                 history.push('/Home')
             } catch (err) {
                 console.log(err)
-            } 
+            }
     };
     
     async function userRegister() {
