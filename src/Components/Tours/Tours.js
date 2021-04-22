@@ -54,7 +54,7 @@ const Tours = (props) => {
     
 
     /* I couldn't figure out how to add images to my database so I displayed images overtop the tours. After that I couldn't click on the button I originally had rendering in 'individual-tour' so I had to create a div for each image and render the button separately in each div */
-    console.log(props)
+    // console.log(props)
     return (
         <div className='Tours'>
             <h2 className='tours-list'>{mappedTours}</h2>
