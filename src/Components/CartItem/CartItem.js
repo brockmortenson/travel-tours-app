@@ -38,7 +38,13 @@ const CartItem = () => {
 
     return (
         <div className='CartItem'>
-            <h2 className='cart-tours-list'>{mappedCart}</h2>
+            <div className='cart-tours-list'>{mappedCart}
+                <div className='checkout-container'>
+                    <h3>Thank you for booking with us!</h3>
+                    <button type="button" id="checkout-button" style={{ textDecoration: 'none'}}>Checkout</button>
+                </div>
+            </div>
+            {/* <div className='checkout-container'></div> */}
             {/* <div className='tour-images'>
                 <div className='images-container'>
                 <img className='basic-paris' src='https://res.allmacwallpaper.com/pic/Thumbnails/2558_728.jpg' alt='basic-paris' />
@@ -59,6 +65,12 @@ const CartItem = () => {
                 <img className='inclusive-italy' src='https://wallpaperaccess.com/full/115111.jpg' alt='inclusive-italy' />
                 </div>
             </div> */}
+
+            {/* <div className='stripe'>
+            <a href='https://js.stripe.com/v3/'></a>
+            </div> */}
+            {/* <button type="button" id="checkout-button">Checkout</button> */}
+
         </div>
     );
 }
