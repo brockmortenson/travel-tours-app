@@ -1,30 +1,17 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+// import axios from 'axios';
+import CartItem from '../CartItem/CartItem'; 
 import './Cart.css';
 
 const Cart = () => {
-    const [ cartArr, setCartArr ] = useState([]);
-
-    useEffect(() => {
-        axios
-            .get('/api/cart')
-            .then(response => {
-                setCartArr(response.data)
-            })
-            .catch(err => console.log(err))
-    }, [])
-
-    const mappedCart = cartArr.map((tour) => {
-        return (
-            <div key={tour.tour_id} className='tour-container'>
-                <div>{tour.title}</div>
-            </div>
-        )
-    })
 
     return (
         <div className='Cart'>
-            <div>{mappedCart}</div>
+            <div className='Cart-container'></div>
+            <div className='cart-tours-render'>
+                <header className='cart-tours-header'>Your Cart</header>
+                <CartItem />
+            </div>
         </div>
     );
 }

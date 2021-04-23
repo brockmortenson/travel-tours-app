@@ -1,0 +1,86 @@
+.CartItem {
+    width: 100vw;
+    height: 850px;
+    position: relative;
+    display: flex;
+    /* justify-content: flex-start; */
+    background-color: white;
+    box-shadow: 0px 0px 16px -5px rgba(0,0,0,0.49);
+}
+
+.cart-tour-container {
+    width: 250px;
+    height: 325px;
+    padding: 13px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.767);
+    border-radius: 5px;
+    box-shadow: 0px 0px 16px -5px rgba(0,0,0,0.49);
+}
+
+.cart-individual-tour {
+    width: 225px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-tours-list {
+    width: 750px;
+    height: 850px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: white;
+    z-index: 2;
+}
+
+.cart-tour-title {
+    font-size: 19.5px;
+    font-weight: 500;
+    padding-bottom: 4px;
+}
+
+.cart-tour-price {
+    font-size: 27px;
+}
+
+.cart-tour-summary {
+    font-size: 14px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 996px) {
+    .CartItem {
+        height: 1200px;
+    }
+
+    .cart-tours-list {
+        width: 800px;
+        height: 1100px;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 667px) {
+    .CartItem {
+        height: 2375px;
+    }
+
+    .cart-tours-list {
+        width: 300px;
+        height: 2300px;
+        margin-top: 40px;
+    }
+}
