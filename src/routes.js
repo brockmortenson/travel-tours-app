@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 import Cart from './Components/Cart/Cart';
+import ChangePass from './Components/ChangePass/ChangePass';
 
 export default (
     <Switch>
@@ -13,5 +14,6 @@ export default (
         <Route path='/About' component={About}/>
         <Route path='/Contact' component={Contact}/>
         <Route path='/Cart' component={Cart}/>
+        <Route path='/ChangePass' component={ChangePass}/>
     </Switch>
 );

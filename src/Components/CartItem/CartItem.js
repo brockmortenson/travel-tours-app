@@ -14,28 +14,37 @@ const CartItem = () => {
             .catch(err => console.log(err))
     }, [])
 
+    
     const mappedCart = cartArr.map((cartTour) => {
         /* the commented code below is from trying to get the prices to sum */
-
+        
         // let total = '';
         // for (let i = 0; i < cartArr.length; i++) {
-        //     if (cartTour.price) {
-        //         total += cartTour.price
-        //     }
-        //    return total;
-        // }
-        return (
-            <div key={cartTour.tour_id} className='cart-tour-container'>
+            //     if (cartTour.price) {
+                //         total += cartTour.price
+                //     }
+                //    return total;
+                // }
+                return (
+                    <div key={cartTour.tour_id} className='cart-tour-container'>
                 <div className='cart-individual-tour'>
                     <div className='cart-tour-title'>{cartTour.title}</div>
                     <div className='cart-tour-price'>${cartTour.price}</div>
                     <div className='cart-tour-summary'>{cartTour.description}</div>
-                    {/* <div>{total}</div> */}
                 </div>
             </div>
         )
     });
 
+    // function updateTour(tour_id) {
+    //     let body = { tour_id };
+    //     try {
+    //         axios.put('/api/cart', body)
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
+    
     return (
         <div className='CartItem'>
             <div className='cart-tours-list'>{mappedCart}

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { requestUserData } from '../../ducks/userReducer';
 import { useHistory } from 'react-router';
@@ -18,10 +18,10 @@ const Landing = (props) => {
         e.preventDefault()
         let body = { userEmail, userPassword };
         try {
-        await axios
-                .post('/auth/login', body)
-                props.requestUserData()
-                history.push('/Home')
+            await axios
+                    .post('/auth/login', body)
+                    props.requestUserData()
+                    history.push('/Home')
             } catch (err) {
                 console.log(err)
             }
@@ -32,9 +32,9 @@ const Landing = (props) => {
         let body = { userEmail, userPassword };
         try {
             await axios
-                .post('/auth/register', body)
-                props.requestUserData()
-                history.push('/Home')
+                    .post('/auth/register', body)
+                    props.requestUserData()
+                    history.push('/Home')
             } catch (err) {
                 console.log(err)
             }
@@ -63,6 +63,10 @@ const Landing = (props) => {
                     />
                     <button className='login-btn' type='submit'>Login</button>
                 </form>
+
+                {/* <div className='change-pass'>
+                    <Link to='/ChangePass'>Change my password</Link>
+                </div> */}
 
                 <h1 className='register-text'>Don't have an account? Register below!</h1>
 

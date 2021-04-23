@@ -62,5 +62,20 @@ module.exports = {
         } else {
             res.sendStatus(403);
         }
+    },
+    changePassword: async (req, res) => {
+        const db = req.app.get('db');
+        const { userEmail: email, userPassword: password } = req.body;
+
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(password, salt);
+
+        const [ newUser ] = await db.register_user(email, hash);
+
+        delete newUser.hash;
+
+        req.session.user = newUser;
+
+        res.status(200).send(req.session.user)
     }
 }

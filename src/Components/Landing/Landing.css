@@ -56,6 +56,11 @@
     text-align: center;
 }
 
+.change-pass {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
 .register {
     padding-top: 4vh;
 }

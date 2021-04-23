@@ -36,6 +36,8 @@ app.delete('/auth/logout', userCtrl.logout);
 
 app.get('/auth/session', userCtrl.getSession);
 
+app.put('/auth/change', userCtrl.changePassword);
+
 
     /* TOURS ENDPOINTS */
 
@@ -49,8 +51,7 @@ app.post('/api/tours', tourCtrl.bookTour);
 
 app.get('/api/cart', cartCtrl.getCart);
 
-// cartCtrl.updateTour
-app.put('/api/cart/:tour_id');
+// app.put('/api/cart', cartCtrl.updateTour);
 
 // cartCtrl.removeTour
 app.delete('/api/cart/:tour_id');

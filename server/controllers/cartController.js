@@ -14,7 +14,11 @@ module.exports = {
         return res.status(200).send(myCart);
     },
     updateTour: async (req, res) => {
-        const updatedTour = await req.app.get('db').change_tier();
+        const db = req.app.get('db');
+        const { tour_id } = req.body;
+        const { cartID } = req.session.user;
+        
+        const updatedTour = await req.app.get('db').add_cart_item_to_cart(cartID, tour_id);
         return res.status(200).send(updatedTour);
     },
     // removeTour
