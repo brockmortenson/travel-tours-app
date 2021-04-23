@@ -17,12 +17,12 @@ module.exports = {
         const [ newUser ] = await db.register_user(email, hash);
         const [ cart ] = await db.create_cart(newUser.user_id);
 
-        console.log(cart)
-
         delete newUser.hash;
 
+        newUser.cart = cart.cart_id;
+        console.log(newUser)
+
         req.session.user = newUser;
-        req.session.user.cart = cart.cart_id;
 
         res.status(200).send(req.session.user)
     },
@@ -41,6 +41,10 @@ module.exports = {
         if (!isAuthenticated) {
             return res.status(403).send('Incorrect email and/or password');
         }
+
+        const [ cart ] = await db.get_cart_id(existingUser.user_id);
+        console.log(cart)
+        existingUser.cartID = cart.cart_id;
 
         delete existingUser.hash;
 

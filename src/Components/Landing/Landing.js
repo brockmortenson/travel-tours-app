@@ -27,7 +27,8 @@ const Landing = (props) => {
             }
     };
     
-    async function userRegister() {
+    async function userRegister(e) {
+        e.preventDefault()
         let body = { userEmail, userPassword };
         try {
             await axios

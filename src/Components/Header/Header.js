@@ -16,7 +16,7 @@ const Header = (props) => {
             .delete('/auth/logout')
             .then(() => {
                 props.logout();
-                history.goBack('/');
+                history.replace('/');
             })
             } catch (err) {
             console.log(err)

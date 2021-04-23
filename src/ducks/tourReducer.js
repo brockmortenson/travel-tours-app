@@ -7,7 +7,7 @@ const initialState = {
 const REQUEST_CART_DATA = 'REQUEST_CART_DATA';
 const BOOK_TOUR = 'BOOK_TOUR';
 const REMOVE_TOUR = 'REMOVE_TOUR';
-// is this where changeTier would go???
+// changeTour goes here or in cartRdcr???
 
 export const requestCartData = () => {
     let data = axios.get('/api/cart')
@@ -20,8 +20,8 @@ export const requestCartData = () => {
         };
 }
 
-export const bookTour = (price, title, summary) => {
-    let data = axios.post('/api/tours', {
+export const bookTour = (tour_id, price, title, summary) => {
+    let data = axios.post(`/api/tours/${tour_id}`, {
         price,
         title,
         summary
@@ -35,8 +35,8 @@ export const bookTour = (price, title, summary) => {
         };
 }
 
-export const removeTour = (id) => {
-    let data = axios.delete(`/api/cart/${id}`)
+export const removeTour = (tour_id) => {
+    let data = axios.delete(`/api/cart/${tour_id}`)
         .then(response => response.data)
         .catch(err => console.log(err));
 
