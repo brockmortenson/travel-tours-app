@@ -65,16 +65,25 @@ module.exports = {
     },
     changePassword: async (req, res) => {
         const db = req.app.get('db');
-        const { userEmail: email, userPassword: password } = req.body;
+        const { userPassword: password, newPassword } = req.body;
+
+        const { email } = req.session;
+        const [ existingUser ] = await db.check_existing_user(email);
+
+        const isAuthenticated = bcrypt.compareSync(password, existingUser.hash);
+
+        if (!isAuthenticated) {
+            return res.status(403).send('Incorrect email and/or password');
+        }
 
         const salt = bcrypt.genSaltSync(10);
-        const hash = bcrypt.hashSync(password, salt);
+        const hash = bcrypt.hashSync(newPassword, salt);
 
-        const [ newUser ] = await db.register_user(email, hash);
+        const [ updateUser ] = await db.change_password( req.session.user.user_id, hash);
 
-        delete newUser.hash;
+        delete updateUser.hash;
 
-        req.session.user = newUser;
+        req.session.user = updateUser;
 
         res.status(200).send(req.session.user)
     }

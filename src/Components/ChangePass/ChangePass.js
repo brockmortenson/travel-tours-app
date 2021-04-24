@@ -1,22 +1,21 @@
-
 import axios from 'axios';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { requestUserData } from '../../ducks/userReducer';
 import { useHistory } from 'react-router';
 import './ChangePass.css';
 
 const ChangePass = (props) => {
-    const [ userEmail, setUserEmail ] = useState('');
-    const [ userPassword, setUserPassword ] = useState('');
-    // const pass = props.userPassword;
+    const [ userPassword, setUserPassword ] = useState(''); 
+    const [ newPassword, setNewPassword ] = useState(''); 
     const history = useHistory();
 
     async function changePass(e) {
         e.preventDefault()
-        let body = { userEmail, userPassword };
+        let body = { userPassword, newPassword };
         try {
             await axios
-                    .post('/auth/change', body)
+                    .put('/auth/change', body)
                     props.requestUserData()
                     history.push('/Home')
         } catch (err) {
@@ -27,18 +26,18 @@ const ChangePass = (props) => {
     return (
         <div className='ChangePass'>
             <form className='change-pass-form' onSubmit={changePass}>
-                <h1>Enter your email and new password</h1>
+                <h1>Enter your current and new passwords</h1>
                 <input
                     className='current-pass-input'
                     type='text'
-                    placeholder='Email'
-                    onChange={e => setUserEmail(e.target.value)}
+                    placeholder='Current password'
+                    onChange={(e) => setUserPassword(e.target.value)}
                     />
                 <input
                     className='change-pass-input'
                     type='password'
                     placeholder='New password'
-                    onChange={e => setUserPassword(e.target.value)}
+                    onChange={(e) => setNewPassword(e.target.value)}
                 />
                 <button className='change-pass-btn' type='submit'>Submit</button>
             </form>
@@ -46,4 +45,4 @@ const ChangePass = (props) => {
     )
 }
 
-export default ChangePass;
+export default connect(null, {requestUserData})(ChangePass);
