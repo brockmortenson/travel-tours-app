@@ -31,12 +31,14 @@ const ChangePass = (props) => {
                     className='current-pass-input'
                     type='text'
                     placeholder='Current password'
+                    style={{ textDecoration: 'none'}}
                     onChange={(e) => setUserPassword(e.target.value)}
                     />
                 <input
                     className='change-pass-input'
                     type='password'
                     placeholder='New password'
+                    style={{ textDecoration: 'none'}}
                     onChange={(e) => setNewPassword(e.target.value)}
                 />
                 <button className='change-pass-btn' type='submit'>Submit</button>

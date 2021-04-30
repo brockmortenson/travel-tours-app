@@ -6,8 +6,10 @@ const session = require('express-session');
 const userCtrl = require('./controllers/userController');
 const tourCtrl = require('./controllers/tourController');
 const cartCtrl = require('./controllers/cartController');
+const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
+const nodemailer = require('nodemailer');
 const path = require('path');
-// const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 
 
@@ -25,6 +27,60 @@ app.use(
         }
     })
 );
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
+    /* nodemailer */
+app.get('/', (req, res) => {
+    res.send('contact')
+});
+
+app.post('/send', (req, res) => {
+   const output = `
+   <p>You have a new contact request</p>
+   <h3>Contact Details</h3>
+   <ul>
+        <li>Email: ${req.body.email}</li>
+   </ul>`;
+
+   let transporter = nodemailer.createTransport({
+    host: "smtp.mail.yahoo.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: 'bobgotravel@yahoo.com',
+      pass: '3dtofmra',
+    },
+  });
+
+ 
+  let mailOptions = {
+      from: '"GoTravel Team" <bobgotravel@yahoo.com>',
+      to: 'brockotaco12@gmail.com',
+      subject: 'Subscription',
+      text: 'Thanks for subscribing',
+      html: output
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      console.log("Message sent: %s", info.messageId);
+      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  })
+
+})
+
+
+
 
     /* AUTH ENDPOINTS */
 
@@ -79,26 +135,3 @@ massive({
 
 
 
-// const YOUR_DOMAIN = 'https://gotravelproject.com';
-// app.post('/create-checkout-session', async (req, res) => {
-//   const checkoutSession = await stripe.checkout.sessions.create({
-//     payment_method_types: ['card'],
-//     line_items: [
-//       {
-//         price_data: {
-//           currency: 'usd',
-//           product_data: {
-//             name: 'Stubborn Attachments',
-//             images: ['https://i.imgur.com/EHyR2nP.png'],
-//           },
-//           unit_amount: 2000,
-//         },
-//         quantity: 1,
-//       },
-//     ],
-//     mode: 'payment',
-//     success_url: `${YOUR_DOMAIN}/success.html`,
-//     cancel_url: `${YOUR_DOMAIN}/cancel.html`,
-//   });
-//   res.json({ id: checkoutSession.id });
-// });

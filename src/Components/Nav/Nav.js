@@ -10,7 +10,7 @@ function Nav() {
                 <Link to='About' style={{ textDecoration: 'none', color: 'black' }}><li className='nav-about'>About Us</li></Link>
                 <Link to='Contact' style={{ textDecoration: 'none', color: 'black' }}><li className='nav-contact'>Contact Us</li></Link>
                 <Link to='Cart' ><li><img className='cart-img' src='https://image.flaticon.com/icons/png/512/263/263142.png' alt='cart'/></li></Link>
-                <Link to='/ChangePass'>Change password</Link>
+                <Link to='/ChangePass' style={{ textDecoration: 'none', color: 'black'}}>Change password</Link>
             </ul>
             <div className='burger'>
                 <div className='line1'></div>

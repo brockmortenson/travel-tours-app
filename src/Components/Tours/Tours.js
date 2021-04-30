@@ -61,27 +61,27 @@ const Tours = () => {
             <div className='tour-images'>
                 <div className='images-container'>
                 <img className='basic-paris' src='https://res.allmacwallpaper.com/pic/Thumbnails/2558_728.jpg' alt='basic-paris' />
-                <button className='tour-btn' onClick={() => addTourToCart(1)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(1)}>Book Now</button>
                 </div>
                 <div className='images-container'>
                 <img className='full-paris' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9IszB6YE-aDE8YtUGGvVUnZ6e-lPsir5xaA&usqp=CAU' alt='full-paris' />
-                <button className='tour-btn' onClick={() => addTourToCart(2)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(2)}>Book Now</button>
                 </div>
                 <div className='images-container'>
                 <img className='inclusive-paris' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSaQJtUoaVDpxKRb5z9rH76gqE26v9hQitw&usqp=CAU' alt='inclusive-paris' />
-                <button className='tour-btn' onClick={() => addTourToCart(3)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(3)}>Book Now</button>
                 </div>
                 <div className='images-container'>
                 <img className='basic-italy' src='https://wallpaperaccess.com/full/115157.jpg' alt='basic=italy' />
-                <button className='tour-btn' onClick={() => addTourToCart(4)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(4)}>Book Now</button>
                 </div>
                 <div className='images-container'>
                 <img className='full-italy' src='https://s1.1zoom.me/b5346/654/Bridges_Rivers_Evening_Italy_Rome_Cathedral_550636_1920x1080.jpg' alt='full-italy' />
-                <button className='tour-btn' onClick={() => addTourToCart(5)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(5)}>Book Now</button>
                 </div>
                 <div className='images-container'>
                 <img className='inclusive-italy' src='https://wallpaperaccess.com/full/115111.jpg' alt='inclusive-italy' />
-                <button className='tour-btn' onClick={() => addTourToCart(6)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(6)}>Book Now</button>
                 </div>
             </div>
                 <div className='description-list'>{tourDescriptions}</div>

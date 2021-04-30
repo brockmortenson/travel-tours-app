@@ -75,12 +75,14 @@ const Landing = (props) => {
                         className='register-email'
                         type='text'
                         placeholder='Email'
+                        style={{ textDecoration: 'none'}}
                         onChange={e => setUserEmail(e.target.value)}
                     />
                     <input
                         className='register-pass'
                         type='password'
                         placeholder='Password'
+                        style={{ textDecoration: 'none'}}
                         onChange={e => setUserPassword(e.target.value)}
                     />
                     <button className='register-btn' type='submit'>Register</button>
