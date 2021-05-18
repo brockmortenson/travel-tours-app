@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 
 app.post('/send', (req, res) => {
    const output = `
-   <p>You have a new contact request</p>
+   <p>Thank you for subscribing!</p>
    <h3>Contact Details</h3>
    <ul>
         <li>Email: ${req.body.email}</li>
@@ -56,8 +56,11 @@ app.post('/send', (req, res) => {
     secure: false,
     auth: {
       user: 'bobgotravel@yahoo.com',
-      pass: '3dtofmra',
+      pass: 'dzqdpobylmhetooc',
     },
+    tls: {
+        rejectUnauthorized: false
+    }
   });
 
  
