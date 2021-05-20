@@ -38,7 +38,7 @@ app.use(bodyParser.json());
 
 
     /* nodemailer */
-app.get('/', (req, res) => {
+app.get('/mailer', (req, res) => {
     res.send('contact')
 });
 
