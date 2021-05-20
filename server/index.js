@@ -113,7 +113,7 @@ app.get('/api/cart', cartCtrl.getCart);
 // app.put('/api/cart', cartCtrl.updateTour);
 
 // cartCtrl.removeTour
-app.delete('/api/cart/:tour_id');
+app.delete('/api/cart/:id');
 
 
 app.use(express.static(__dirname + '/../build'));
