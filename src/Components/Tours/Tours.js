@@ -4,6 +4,7 @@ import './Tours.css';
 
 const Tours = () => {
     const [ toursArr, setToursArr ] = useState([]);
+    const [ disable, setDisable ] = useState(false);
 
     useEffect(() => {
         axios
@@ -22,12 +23,14 @@ const Tours = () => {
         } catch (err) {
             console.log(err)
         }
+        setDisable(true)
+        alert('This tour has been added to your cart!')
     }
 
     // console.log(toursArr)
-    const mappedTours = toursArr.map((tour) => {
+    const mappedTours = toursArr.map((tour, index) => {
         return (
-            <div key={tour.tour_id} className='tour-container'>
+            <div key={index} className='tour-container'>
                 <div className='individual-tour'>
                     <div className='tour-title'>{tour.title}</div>
                     <div className='tour-price'>${tour.price}</div>
@@ -38,9 +41,9 @@ const Tours = () => {
         )
     });
 
-    const tourDescriptions = toursArr.map((tour) => {
+    const tourDescriptions = toursArr.map((tour, index) => {
         return (
-            <div key={tour.tour_id} className='description-container'>
+            <div key={index} className='description-container'>
                 <div className='individual-description'>
                     <div className='description-title'>{tour.title}</div>
                     <div className='tour-description'>{tour.description}</div>
@@ -61,11 +64,11 @@ const Tours = () => {
             <div className='tour-images'>
                 <div className='images-container'>
                 <img className='basic-paris' src='https://res.allmacwallpaper.com/pic/Thumbnails/2558_728.jpg' alt='basic-paris' />
-                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(1)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} disabled={disable[1]} onClick={() => addTourToCart(1)}>Book Now</button>
                 </div>
                 <div className='images-container'>
                 <img className='full-paris' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9IszB6YE-aDE8YtUGGvVUnZ6e-lPsir5xaA&usqp=CAU' alt='full-paris' />
-                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(2)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} disabled={disable[2]} onClick={() => addTourToCart(2)}>Book Now</button>
                 </div>
                 <div className='images-container'>
                 <img className='inclusive-paris' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSaQJtUoaVDpxKRb5z9rH76gqE26v9hQitw&usqp=CAU' alt='inclusive-paris' />

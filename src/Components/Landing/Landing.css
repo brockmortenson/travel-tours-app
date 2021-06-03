@@ -92,6 +92,12 @@
     text-align: center;
 }
 
+.auth > div {
+    margin-bottom: 5px;
+    color: rgb(253, 66, 66);
+    font-weight: 500;
+}
+
 @media (max-width: 1566px) {
     .login {
         display: flex;

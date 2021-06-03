@@ -102,7 +102,6 @@ app.put('/auth/change', userCtrl.changePassword);
 
 app.get('/api/tours', tourCtrl.getAllTours);
 
-// tourCtrl.bookTour
 app.post('/api/tours', tourCtrl.bookTour);
 
 
@@ -113,7 +112,7 @@ app.get('/api/cart', cartCtrl.getCart);
 // app.put('/api/cart', cartCtrl.updateTour);
 
 // cartCtrl.removeTour
-app.delete('/api/cart/:id');
+app.delete('/api/cart/:id', cartCtrl.removeTour);
 
 
 app.use(express.static(__dirname + '/../build'));

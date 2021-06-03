@@ -7,7 +7,7 @@ const initialState = {
 const REQUEST_CART_DATA = 'REQUEST_CART_DATA';
 const BOOK_TOUR = 'BOOK_TOUR';
 const REMOVE_TOUR = 'REMOVE_TOUR';
-// changeTour goes here or in cartRdcr???
+
 
 export const requestCartData = () => {
     let data = axios.get('/api/cart')

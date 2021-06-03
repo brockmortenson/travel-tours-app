@@ -16,11 +16,12 @@ module.exports = {
 
         const [ newUser ] = await db.register_user(email, hash);
         const [ cart ] = await db.create_cart(newUser.user_id);
+        // console.log(cart)
 
         delete newUser.hash;
 
         newUser.cart = cart.cart_id;
-        console.log(newUser)
+        // console.log(newUser)
 
         req.session.user = newUser;
 
@@ -43,7 +44,7 @@ module.exports = {
         }
 
         const [ cart ] = await db.get_cart_id(existingUser.user_id);
-        console.log(cart)
+        // console.log(cart)
         existingUser.cartID = cart.cart_id;
 
         delete existingUser.hash;

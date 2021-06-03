@@ -8,6 +8,8 @@ import './Landing.css';
 const Landing = (props) => {
     const [ userEmail, setUserEmail ] = useState('');
     const [ userPassword, setUserPassword ] = useState('');
+    const [ errorMsg, setErrorMsg] = useState('');
+    
     const history = useHistory();
     
     useEffect(() => {
@@ -24,6 +26,7 @@ const Landing = (props) => {
                     history.push('/Home')
             } catch (err) {
                 console.log(err)
+                setErrorMsg('*Incorrect username or password*')
             }
     };
     
@@ -40,26 +43,26 @@ const Landing = (props) => {
             }
     };
 
-    // function alert() {
-        
-    // }
 
     return (
         <div className='landing'>
             <div className='auth'>
                 <h1 className='login-text'>Login to view our tours!</h1>
+                <div>{errorMsg}</div>
                 <form className='login' onSubmit={userLogin}>
                     <input
                         className='login-email'
                         type='text'
                         placeholder='Email'
                         onChange={e => setUserEmail(e.target.value)}
+                        required
                     />
                     <input
                         className='login-pass'
                         type='password'
                         placeholder='Password'
                         onChange={e => setUserPassword(e.target.value)}
+                        required
                     />
                     <button className='login-btn' type='submit'>Login</button>
                 </form>
@@ -77,6 +80,7 @@ const Landing = (props) => {
                         placeholder='Email'
                         style={{ textDecoration: 'none'}}
                         onChange={e => setUserEmail(e.target.value)}
+                        required
                     />
                     <input
                         className='register-pass'
@@ -84,6 +88,7 @@ const Landing = (props) => {
                         placeholder='Password'
                         style={{ textDecoration: 'none'}}
                         onChange={e => setUserPassword(e.target.value)}
+                        required
                     />
                     <button className='register-btn' type='submit'>Register</button>
                 </form>
