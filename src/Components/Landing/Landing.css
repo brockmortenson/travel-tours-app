@@ -51,7 +51,6 @@
 }
 
 .login-text {
-    padding-bottom: 4vh;
     font-size: 24px;
     text-align: center;
 }
@@ -59,10 +58,6 @@
 .change-pass {
     font-size: 13px;
     margin-bottom: 5px;
-}
-
-.register {
-    padding-top: 4vh;
 }
 
 .register-email {
@@ -93,7 +88,7 @@
 }
 
 .auth > div {
-    margin-bottom: 5px;
+    margin: 5px 0;
     color: rgb(253, 66, 66);
     font-weight: 500;
 }

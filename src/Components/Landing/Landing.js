@@ -8,14 +8,15 @@ import './Landing.css';
 const Landing = (props) => {
     const [ userEmail, setUserEmail ] = useState('');
     const [ userPassword, setUserPassword ] = useState('');
-    const [ errorMsg, setErrorMsg] = useState('');
+    const [ loginError, setLoginError] = useState('');
+    const [ registerError, setRegisterError] = useState('');
     
     const history = useHistory();
     
     useEffect(() => {
         
     }, []);
-    // after the comma?
+
     async function userLogin(e) {
         e.preventDefault()
         let body = { userEmail, userPassword };
@@ -26,7 +27,7 @@ const Landing = (props) => {
                     history.push('/Home')
             } catch (err) {
                 console.log(err)
-                setErrorMsg('*Incorrect username or password*')
+                setLoginError('*Incorrect username or password*')
             }
     };
     
@@ -40,6 +41,7 @@ const Landing = (props) => {
                     history.push('/Home')
             } catch (err) {
                 console.log(err)
+                setRegisterError('*A user with this email already exists*')
             }
     };
 
@@ -48,7 +50,7 @@ const Landing = (props) => {
         <div className='landing'>
             <div className='auth'>
                 <h1 className='login-text'>Login to view our tours!</h1>
-                <div>{errorMsg}</div>
+                <div>{loginError}</div>
                 <form className='login' onSubmit={userLogin}>
                     <input
                         className='login-email'
@@ -72,7 +74,8 @@ const Landing = (props) => {
                 </div> */}
 
                 <h1 className='register-text'>Don't have an account? Register below!</h1>
-
+                
+                <div>{registerError}</div>
                 <form className='register' onSubmit={userRegister}>
                     <input
                         className='register-email'
