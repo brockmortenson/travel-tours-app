@@ -35,7 +35,7 @@ const CartItem = () => {
                     <div className='cart-tour-title'>{cartTour.title}</div>
                     <div className='cart-tour-price'>${cartTour.price}</div>
                     <div className='cart-tour-summary'>{cartTour.description}</div>
-                    <button onClick={removeTour}>Delete</button>
+                    {/* <button onClick={removeTour}>Delete</button> */}
                 </div>
             </div>
         )
@@ -49,13 +49,17 @@ const CartItem = () => {
     //         console.log(err)
     //     }
     // }
+
+    function handleCheckout() {
+        alert('Checkout has not yet been configured')
+    }
     
     return (
         <div className='CartItem'>
             <div className='cart-tours-list'>{mappedCart}
                 <div className='checkout-container'>
-                    <h3>Thank you for booking with us!</h3>
-                    <button type="button" id="checkout-button" style={{ textDecoration: 'none'}}>Checkout</button>
+                    <h3>Checkout button will soon be integrated with Stripe...</h3>
+                    <button type="button" id="checkout-button" style={{ textDecoration: 'none'}} onClick={handleCheckout}>Checkout</button>
                 </div>
             </div>
             
