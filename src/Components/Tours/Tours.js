@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { bookTour } from '../../ducks/tourReducer';
 import axios from 'axios';
 import './Tours.css';
+import { connect } from 'react-redux';
 
-const Tours = () => {
+const Tours = (props) => {
     const [ toursArr, setToursArr ] = useState([]);
     const [ disable, setDisable ] = useState(false);
 
@@ -92,4 +94,4 @@ const Tours = () => {
     );
 }
 
-export default Tours;
+export default connect(null, {bookTour} )(Tours);

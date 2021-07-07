@@ -13,7 +13,7 @@ module.exports = {
         // console.log(req.session.user.cart)
         // console.log(tour_id)
 
-        const addedTours = await req.app.get('db').add_cart_item_to_cart(cartID, tour_id);
+        const addedTours = await db.add_cart_item_to_cart(cartID, tour_id);
         return res.status (200).send(addedTours);
     }
 }

@@ -20,12 +20,8 @@ export const requestCartData = () => {
         };
 }
 
-export const bookTour = (tour_id, price, title, summary) => {
-    let data = axios.post(`/api/tours/${tour_id}`, {
-        price,
-        title,
-        summary
-    })
+export const bookTour = () => {
+    let data = axios.post(`/api/tours`)
         .then(response => response.data)
         .catch(err => console.log(err));
 

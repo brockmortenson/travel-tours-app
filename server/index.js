@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const app = express();
 const massive = require('massive');
 const session = require('express-session');
 const userCtrl = require('./controllers/userController');
@@ -11,6 +10,7 @@ const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
 const path = require('path');
 
+const app = express();
 
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
@@ -28,6 +28,9 @@ app.use(
     })
 );
 
+
+/* nodemailer */
+
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
@@ -37,7 +40,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-    /* nodemailer */
 app.get('/mailer', (req, res) => {
     res.send('contact')
 });
@@ -115,11 +117,13 @@ app.get('/api/cart', cartCtrl.getCart);
 app.delete('/api/cart/:id', cartCtrl.removeTour);
 
 
+
 app.use(express.static(__dirname + '/../build'));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))
 });
+
 
 
 massive({

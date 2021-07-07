@@ -14,41 +14,28 @@ const CartItem = () => {
             .catch(err => console.log(err))
     }, [])
 
+    const deleteTour = (tour_id) => {
+        axios
+            .delete(`/api/cart/${tour_id}`)
+            .then(() => {
+                alert('Tour has been removed from your cart')
+            })
+            .catch(err => console.log(err));
+    }
+
     
     const mappedCart = cartArr.map((cartTour) => {
-        /* the commented code below is from trying to get the prices to sum */
-        
-        // let total = '';
-        // for (let i = 0; i < cartArr.length; i++) {
-            //     if (cartTour.price) {
-                //         total += cartTour.price
-                //     }
-                //    return total;
-                // }
-        function removeTour() {
-            mappedCart.splice(cartTour, 1, cartTour)
-        }
-                
         return (
             <div key={cartTour.tour_id} className='cart-tour-container'>
                 <div className='cart-individual-tour'>
                     <div className='cart-tour-title'>{cartTour.title}</div>
                     <div className='cart-tour-price'>${cartTour.price}</div>
                     <div className='cart-tour-summary'>{cartTour.description}</div>
-                    {/* <button onClick={removeTour}>Delete</button> */}
+                    <button onClick={() => deleteTour(cartTour.tour_id)}>Delete</button>
                 </div>
             </div>
         )
     });
-
-    // function updateTour(tour_id) {
-    //     let body = { tour_id };
-    //     try {
-    //         axios.put('/api/cart', body)
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
 
     function handleCheckout() {
         alert('Checkout has not yet been configured')
