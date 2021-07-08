@@ -112,6 +112,7 @@
 .tour-btn:hover {
     cursor: pointer;
     background-color: white;
+    box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.49);
 }
 
 .tour-title {

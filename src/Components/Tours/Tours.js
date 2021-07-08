@@ -5,8 +5,8 @@ import './Tours.css';
 import { connect } from 'react-redux';
 
 const Tours = (props) => {
+
     const [ toursArr, setToursArr ] = useState([]);
-    const [ disable, setDisable ] = useState(false);
 
     useEffect(() => {
         axios
@@ -25,7 +25,6 @@ const Tours = (props) => {
         } catch (err) {
             console.log(err)
         }
-        setDisable(true)
         alert('This tour has been added to your cart!')
     }
 
@@ -54,9 +53,6 @@ const Tours = (props) => {
         )
     });
     // console.log(mappedTours)
-    
-
-    /* I couldn't figure out how to add images to my database so I displayed images overtop the tours. After that I couldn't click on the button I originally had rendering in 'individual-tour' so I had to create a div for each image and render the button separately in each div */
 
     // console.log(props)
     
@@ -66,11 +62,11 @@ const Tours = (props) => {
             <div className='tour-images'>
                 <div className='images-container'>
                 <img className='basic-paris' src='https://res.allmacwallpaper.com/pic/Thumbnails/2558_728.jpg' alt='basic-paris' />
-                <button className='tour-btn' style={{ textDecoration: 'none'}} disabled={disable[1]} onClick={() => addTourToCart(1)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(1)}>Book Now</button>
                 </div>
                 <div className='images-container'>
                 <img className='full-paris' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9IszB6YE-aDE8YtUGGvVUnZ6e-lPsir5xaA&usqp=CAU' alt='full-paris' />
-                <button className='tour-btn' style={{ textDecoration: 'none'}} disabled={disable[2]} onClick={() => addTourToCart(2)}>Book Now</button>
+                <button className='tour-btn' style={{ textDecoration: 'none'}} onClick={() => addTourToCart(2)}>Book Now</button>
                 </div>
                 <div className='images-container'>
                 <img className='inclusive-paris' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSaQJtUoaVDpxKRb5z9rH76gqE26v9hQitw&usqp=CAU' alt='inclusive-paris' />
