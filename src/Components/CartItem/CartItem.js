@@ -31,7 +31,7 @@ const CartItem = () => {
                     <div className='cart-tour-title'>{cartTour.title}</div>
                     <div className='cart-tour-price'>${cartTour.price}</div>
                     <div className='cart-tour-summary'>{cartTour.description}</div>
-                    <button onClick={() => deleteTour(cartTour.tour_id)}>Delete</button>
+                    {/* <button onClick={() => deleteTour(cartTour.tour_id)}>Delete</button> */}
                 </div>
             </div>
         )
@@ -43,11 +43,13 @@ const CartItem = () => {
     
     return (
         <div className='CartItem'>
+            <div className='cart-back'>
             <div className='cart-tours-list'>{mappedCart}
                 <div className='checkout-container'>
                     <h3>Checkout button will soon be integrated with Stripe...</h3>
                     <button type="button" id="checkout-button" style={{ textDecoration: 'none'}} onClick={handleCheckout}>Checkout</button>
                 </div>
+            </div>
             </div>
             
             {/* <div className='checkout-container'></div> */}
