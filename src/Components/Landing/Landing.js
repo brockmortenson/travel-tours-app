@@ -17,6 +17,15 @@ const Landing = (props) => {
         
     }, []);
 
+    const checkRegister = () => {
+        if (userEmail.includes('@' && '.')) {
+            setRegisterError('')
+            return;
+        } else {
+            setRegisterError('Please enter a valid email address')
+        }
+    };
+
     async function userLogin(e) {
         e.preventDefault()
         let body = { userEmail, userPassword };
@@ -84,6 +93,7 @@ const Landing = (props) => {
                         style={{ textDecoration: 'none'}}
                         onChange={e => setUserEmail(e.target.value)}
                         required
+                        onKeyUp={checkRegister}
                     />
                     <input
                         className='register-pass'

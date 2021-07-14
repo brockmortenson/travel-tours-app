@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import cart from '../../images/cart.png';
 import './Nav.css';
 
 function Nav() {
@@ -23,7 +24,7 @@ function Nav() {
                 <Link to='/Home' style={{ textDecoration: 'none', color: 'black' }}><li className='nav-home'>Home</li></Link>
                 <Link to='About' style={{ textDecoration: 'none', color: 'black' }}><li className='nav-about'>About Us</li></Link>
                 <Link to='Contact' style={{ textDecoration: 'none', color: 'black' }}><li className='nav-contact'>Contact Us</li></Link>
-                <Link to='Cart' ><li><img className='cart-img' src='https://image.flaticon.com/icons/png/512/263/263142.png' alt='cart'/></li></Link>
+                <Link to='Cart' ><li><img className='cart-img' src={cart} alt='cart'/></li></Link>
                 {/* <Link to='/ChangePass' style={{ textDecoration: 'none', color: 'black'}}>Change password</Link> */}
                 {/* will add changepass again later */}
             </ul>
@@ -32,7 +33,7 @@ function Nav() {
                     <Link to='/Home' style={{ textDecoration: 'none', color: 'black' }}><li>Home</li></Link>
                     <Link to='About' style={{ textDecoration: 'none', color: 'black' }}><li>About Us</li></Link>
                     <Link to='Contact' style={{ textDecoration: 'none', color: 'black' }}><li>Contact Us</li></Link>
-                    <Link to='Cart' ><li><img src='https://image.flaticon.com/icons/png/512/263/263142.png' alt='cart'/></li></Link>
+                    <Link to='Cart' ><li><img src={cart} alt='cart'/></li></Link>
                 </ul>
                 : null
                 }

@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 const initialState = {
-    user: {}
+    user: {},
+    isLoggedIn: false
 };
 
 const REQUEST_USER_DATA = 'REQUEST_USER_DATA';
 const LOGOUT = 'LOGOUT';
 
 export const requestUserData = () => {
-    // do I pass in the user object (the user email) as well ??? 
     let data = axios.get('/auth/session')
         .then(response => response.data)
         .catch(err => console.log(err));
@@ -31,7 +31,10 @@ export const logout = () => {
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case REQUEST_USER_DATA + '_FULFILLED':
-            return { user: action.payload };
+            return {
+                user: action.payload,
+                isLoggedIn: true
+            };
 
         case LOGOUT:
             return initialState;

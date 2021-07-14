@@ -99,6 +99,7 @@
     transform: rotate(150deg);
 }
 
+
 @media (max-width: 1155px) {
     .Nav {
         margin-right: 90px;
@@ -163,7 +164,7 @@
         justify-content: center;
         align-items: center;
         background-color: rgba(49, 153, 184, 0.534);
-        transition: all 0.4s ease;
+        
     }
 
     .toggled li {
